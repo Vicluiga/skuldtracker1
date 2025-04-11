@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kid Allowance Debt Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- User Selection Screen -->
+        <div id="user-selection" class="view active">
+            <h1>Vem är du?</h1>
+            <div class="button-group">
+                <button id="emmylou-btn" class="user-btn">Emmylou</button>
+                <button id="majken-btn" class="user-btn">Majken</button>
+                <button id="solvei-btn" class="user-btn">Solvei</button>
+                <button id="otto-btn" class="user-btn">Otto</button>
+                <button id="parent-btn" class="user-btn">Förälder</button>
+            </div>
+        </div>
+
+        <!-- Password Screen -->
+        <div id="password-screen" class="view">
+            <div class="password-container">
+                <h1>Förälder Åtkomst</h1>
+                <form id="password-form">
+                    <input type="password" id="password-input" placeholder="Ange lösenord" required>
+                    <button type="submit">Logga in</button>
+                    <button type="button" id="password-back-btn" class="back-btn">Tillbaka</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Parent View -->
+        <div id="parent-view" class="view">
+            <div class="header">
+                <h1>Förälder Dashboard</h1>
+                <button id="back-to-selection" class="back-btn">Tillbaka</button>
+            </div>
+            
+            <div class="dashboard">
+                <div class="child-summary" id="emmylou-summary">
+                    <h2>Emmylou</h2>
+                    <p class="total-debt">Total skuld: <span id="emmylou-total">0</span> kr</p>
+                    <button class="view-details-btn" data-child="emmylou">Visa Detaljer</button>
+                </div>
+                <div class="child-summary" id="majken-summary">
+                    <h2>Majken</h2>
+                    <p class="total-debt">Total skuld: <span id="majken-total">0</span> kr</p>
+                    <button class="view-details-btn" data-child="majken">Visa Detaljer</button>
+                </div>
+                <div class="child-summary" id="solvei-summary">
+                    <h2>Solvei</h2>
+                    <p class="total-debt">Total skuld: <span id="solvei-total">0</span> kr</p>
+                    <button class="view-details-btn" data-child="solvei">Visa Detaljer</button>
+                </div>
+                <div class="child-summary" id="otto-summary">
+                    <h2>Otto</h2>
+                    <p class="total-debt">Total skuld: <span id="otto-total">0</span> kr</p>
+                    <button class="view-details-btn" data-child="otto">Visa Detaljer</button>
+                </div>
+            </div>
+
+            <div id="child-details" class="hidden">
+                <h2 id="selected-child-name">Child Details</h2>
+                <div class="debt-form">
+                    <h3>Lägg till ny skuld</h3>
+                    <form id="add-debt-form">
+                        <input type="number" id="debt-amount" placeholder="Belopp" step="1" required>
+                        <input type="text" id="debt-reason" placeholder="Anledning" required>
+                        <button type="submit">Lägg till</button>
+                    </form>
+                </div>
+                <div class="debt-history">
+                    <h3>Skuldhistorik</h3>
+                    <ul id="debt-list"></ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Child View -->
+        <div id="child-view" class="view">
+            <div class="header">
+                <h1 id="child-name">Child's Name</h1>
+                <button id="child-back-btn" class="back-btn">Tillbaka</button>
+            </div>
+            <div class="child-dashboard">
+                <p class="total-debt">Total skuld: <span id="child-total">0</span> kr</p>
+                <div class="debt-history">
+                    <h3>Din skuldhistorik</h3>
+                    <ul id="child-debt-list"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html> 
